@@ -1,0 +1,7 @@
+local random = require(script.Random)
+local office = require(script.PostOffice)
+game.ReplicatedStorage.RollButton.OnServerEvent:Connect(function(plr)
+	local dummy = random.Body(plr)
+	office.renderUI(office.pack(dummy), plr)
+	game.ReplicatedStorage.Rolled:FireClient(plr, office.pack(dummy))
+end)
